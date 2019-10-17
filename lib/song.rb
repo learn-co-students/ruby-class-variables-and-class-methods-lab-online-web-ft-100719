@@ -40,13 +40,21 @@ attr_accessor :name, :artist, :genre
       else
         counted_artists[artist]=1
       end
-      # @@artist_hash[artist]=artist.length
-      counted_artists
     end
+    counted_artists
   end
   
   def self.genre_count
-    @genre<<@@genres.length
+    counted_genres={}
+    @@genres.each do |genre|
+      counted_genres[genre]
+      if counted_genres[genre]
+        counted_genres[genre]+=1
+      else
+        counted_genres[genre]=1
+      end
+    end
+    counted_genres
   end
   
 end
