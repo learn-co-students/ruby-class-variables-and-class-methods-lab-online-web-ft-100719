@@ -1,3 +1,4 @@
+require 'pry'
 class Song
   attr_accessor :name,:artist,:genre
   @@count = 0 
@@ -27,19 +28,19 @@ class Song
   
   def self.genre_count
     genrehash={}
-    x=0
-    y=0
-    @@genres.each do |k, v|
-      while x!=@@genres.length
-        if @@genres[k]!=@@genres[x]
-        genrehash[k] << @@genres[k]
-        y += 1
-        genrehash[k][v] << y
-        else
-        genrehash[k][v] += 1
-        end
-      end
+    @@genres.each do |k|
+      #binding.pry
+      genrehash[k]=@@genres.count(k)
     end
     return genrehash
+  end
+  
+  def self.artist_count
+    artisthash={}
+    @@artists.each do |k|
+      #binding.pry
+      artisthash[k]=@@artists.count(k)
+    end
+    return artisthash
   end
 end
